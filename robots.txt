@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://npc-website-seven.vercel.app/sitemap.xml
+Sitemap: https://npc-orgs.vercel.app/sitemap.xml

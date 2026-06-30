@@ -2,7 +2,7 @@
 
 NoPlanCoders公式サイトです。
 
-Production: https://npc-website-seven.vercel.app
+Production: https://npc-orgs.vercel.app
 
 ## Local Checks
 
