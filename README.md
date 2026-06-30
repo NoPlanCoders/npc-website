@@ -1,6 +1,6 @@
 # NoPlanCoders Website
 
-Official website for the NoPlanCoders GitHub organization.
+NoPlanCoders公式サイトです。
 
 Production: https://npc-website-seven.vercel.app
 

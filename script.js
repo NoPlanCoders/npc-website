@@ -20,7 +20,7 @@ menu?.addEventListener("click", (event) => {
 const fallbackRepos = [
   {
     name: "npc-website",
-    description: "NoPlanCoders official website.",
+    description: "NoPlanCoders公式サイトです。",
     html_url: "https://github.com/NoPlanCoders/npc-website",
     language: "HTML",
     stargazers_count: 0,
@@ -57,10 +57,10 @@ const renderRepos = (repos) => {
             <span class="repo-name">${escapeText(repo.name)}</span>
             <p>${escapeText(description)}</p>
           </span>
-          <span class="repo-meta" aria-label="${escapeText(repo.name)} metadata">
+          <span class="repo-meta" aria-label="${escapeText(repo.name)} の情報">
             <span>${escapeText(language)}</span>
-            <span>${stars} stars</span>
-            <span>Updated ${formatDate(repo.updated_at)}</span>
+            <span>${stars} スター</span>
+            <span>更新 ${formatDate(repo.updated_at)}</span>
           </span>
         </a>
       `;
