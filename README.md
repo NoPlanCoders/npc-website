@@ -12,6 +12,12 @@ Languages: Japanese / English
 npm run check
 ```
 
+## Local Development
+
+```powershell
+npm run dev
+```
+
 ## Deploy
 
-This project is a static site designed for Vercel.
+This project is a Vite + React site deployed on Vercel.

@@ -1,8 +1,8 @@
 :root {
   color-scheme: dark;
   --bg: #050608;
-  --surface: #101216;
-  --surface-2: #15181e;
+  --surface: rgba(16, 18, 22, 0.9);
+  --surface-2: rgba(21, 24, 30, 0.94);
   --text: #f5f6f8;
   --muted: #a7adb6;
   --quiet: #747c88;
@@ -31,6 +31,16 @@ body {
   color: var(--text);
   line-height: 1.65;
   text-rendering: optimizeLegibility;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(143, 231, 208, 0.08), transparent 36%),
+    #050608;
+  content: "";
 }
 
 img {
@@ -67,8 +77,28 @@ button:focus-visible {
   transform: translateY(0);
 }
 
+.plasma-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.plasma-layer::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 6, 8, 0.18), rgba(5, 6, 8, 0.82) 58%, #050608),
+    radial-gradient(circle at 50% 18%, transparent 0, rgba(5, 6, 8, 0.58) 60%);
+  content: "";
+}
+
 .site-header {
+  position: relative;
   border-bottom: 1px solid var(--line);
+  background: rgba(5, 6, 8, 0.72);
+  backdrop-filter: blur(12px);
 }
 
 .nav-shell {
@@ -215,7 +245,7 @@ h2 {
 
 .button.secondary {
   border: 1px solid var(--line-strong);
-  background: transparent;
+  background: rgba(5, 6, 8, 0.18);
 }
 
 .repo-section {
@@ -330,6 +360,8 @@ h2 {
   .nav-actions {
     width: 100%;
     align-items: stretch;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(96px, 1fr);
   }
 
   .lang-switch {

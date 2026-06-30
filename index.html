@@ -26,70 +26,9 @@
     <link rel="alternate" hreflang="x-default" href="https://npc-orgs.vercel.app" />
     <title>NoPlanCoders</title>
     <link rel="icon" href="assets/logo-mark.png" type="image/png" />
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main" data-i18n="skipLink">本文へ移動</a>
-
-    <header class="site-header">
-      <nav class="nav-shell" aria-label="メインナビゲーション" data-i18n-aria-label="mainNav">
-        <a class="brand" href="#top" aria-label="NoPlanCoders home">
-          <img src="assets/logo-mark.png" width="36" height="36" alt="" />
-          <span>NoPlanCoders</span>
-        </a>
-
-        <div class="nav-actions">
-          <div class="lang-switch" role="group" aria-label="言語を選択" data-i18n-aria-label="languageSwitch">
-            <button class="lang-option" type="button" data-lang="ja" aria-pressed="true">JA</button>
-            <button class="lang-option" type="button" data-lang="en" aria-pressed="false">EN</button>
-          </div>
-          <a class="text-button" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
-            GitHub
-          </a>
-        </div>
-      </nav>
-    </header>
-
-    <main id="main" class="page-shell">
-      <section class="intro" id="top" aria-labelledby="hero-title">
-        <img class="intro-logo" src="assets/logo-mark.png" width="84" height="84" alt="" />
-        <p class="eyebrow" data-i18n="heroEyebrow">GitHub org</p>
-        <h1 id="hero-title">NoPlanCoders</h1>
-        <p class="intro-copy" data-i18n="heroCopy">
-          NoPlanCodersはGitHubのorgです。まだ何をするかは決めてません。作ったものをここに置いています。
-        </p>
-        <div class="intro-actions" aria-label="リンク" data-i18n-aria-label="primaryLinks">
-          <a class="button primary" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
-            <span data-i18n="githubButton">GitHubを見る</span>
-          </a>
-          <a class="button secondary" href="#repositories" data-i18n="reposButton">リポジトリを見る</a>
-        </div>
-      </section>
-
-      <section class="repo-section" id="repositories" aria-labelledby="repo-title">
-        <div class="section-header">
-          <h2 id="repo-title" data-i18n="reposTitle">リポジトリ</h2>
-          <p data-i18n="reposCopy">GitHubで公開しているものです。</p>
-        </div>
-
-        <div class="repo-grid" id="repo-list" aria-live="polite">
-          <article class="repo-card loading">
-            <span class="repo-name" data-i18n="repoLoadingTitle">読み込み中</span>
-            <p data-i18n="repoLoadingCopy">GitHubから取得しています。</p>
-          </article>
-        </div>
-
-        <a class="plain-link" href="https://github.com/NoPlanCoders?tab=repositories" rel="noreferrer" target="_blank">
-          <span data-i18n="allReposLink">GitHubですべて見る</span>
-        </a>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <span>NoPlanCoders</span>
-      <span>GitHub / Vercel</span>
-    </footer>
-
-    <script src="script.js" type="module"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
