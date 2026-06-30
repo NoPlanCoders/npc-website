@@ -155,6 +155,47 @@ button:focus-visible {
   color: var(--text);
 }
 
+.lang-switch {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 4px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.lang-option {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.lang-option[aria-pressed="true"] {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.lang-option:hover {
+  color: var(--text);
+}
+
+.lang-option[aria-pressed="true"]:hover {
+  color: var(--bg);
+}
+
 .nav-toggle {
   display: none;
   width: 44px;
@@ -559,12 +600,13 @@ h1 {
     top: var(--header-height);
     right: 20px;
     left: 20px;
+    z-index: 40;
     display: grid;
     gap: 4px;
     padding: 10px;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    background: rgba(13, 16, 20, 0.96);
+    background: var(--bg-raised);
     box-shadow: var(--shadow);
     transform: translateY(-12px);
     opacity: 0;
@@ -582,6 +624,15 @@ h1 {
 
   .nav-links .nav-action {
     margin-left: 0;
+  }
+
+  .lang-switch {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .lang-option {
+    flex: 1;
   }
 
   .hero {

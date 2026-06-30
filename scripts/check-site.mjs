@@ -16,12 +16,17 @@ if (missing.length > 0) {
 
 const html = readFileSync("index.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
+const js = readFileSync("script.js", "utf8");
 
 const checks = [
   ["HTML language is Japanese", html.includes('<html lang="ja">')],
   ["Viewport meta tag exists", html.includes('name="viewport"')],
   ["Main heading exists", html.includes("NoPlanCoders")],
   ["GitHub organization link exists", html.includes("https://github.com/NoPlanCoders")],
+  ["Japanese hreflang exists", html.includes('hreflang="ja"')],
+  ["English hreflang exists", html.includes('hreflang="en"')],
+  ["Language switch exists", html.includes('class="lang-switch"')],
+  ["English translations exist", js.includes("About NoPlanCoders")],
   ["Reduced motion support exists", css.includes("prefers-reduced-motion")],
   ["Focus visible styles exist", css.includes(":focus-visible")],
 ];

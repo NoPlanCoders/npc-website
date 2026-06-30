@@ -4,6 +4,8 @@ NoPlanCoders公式サイトです。
 
 Production: https://npc-orgs.vercel.app
 
+Languages: Japanese / English
+
 ## Local Checks
 
 ```powershell
