@@ -1,0 +1,9 @@
+{
+  "name": "npc-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official website for the NoPlanCoders GitHub organization.",
+  "scripts": {
+    "check": "node scripts/check-site.mjs"
+  }
+}
