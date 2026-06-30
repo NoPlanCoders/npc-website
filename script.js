@@ -1,128 +1,57 @@
-const nav = document.querySelector("[data-nav]");
-const toggle = document.querySelector(".nav-toggle");
-const menu = document.querySelector("#site-menu");
 const repoList = document.querySelector("#repo-list");
 const languageButtons = [...document.querySelectorAll("[data-lang]")];
 
 const translations = {
   ja: {
-    title: "NoPlanCoders | 公式サイト",
-    description: "NoPlanCodersはGitHubの組織です。Webサイトや開発用ツールを作って公開しています。",
+    title: "NoPlanCoders",
+    description: "NoPlanCodersはGitHubのorgです。作ったものを置いています。",
     skipLink: "本文へ移動",
     mainNav: "メインナビゲーション",
-    openMenu: "メニューを開く",
-    closeMenu: "メニューを閉じる",
     languageSwitch: "言語を選択",
-    navAbout: "概要",
-    navWorks: "作っているもの",
-    navRepos: "リポジトリ",
-    navJoin: "参加",
-    heroEyebrow: "GitHubの組織",
-    heroCopy: "NoPlanCodersはGitHubの組織です。Webサイト、AI関連ツール、開発用ツールなどを作って公開しています。",
-    primaryLinks: "主要リンク",
+    heroEyebrow: "GitHub org",
+    heroCopy: "NoPlanCodersはGitHubのorgです。まだ何をするかは決めてません。作ったものをここに置いています。",
+    primaryLinks: "リンク",
     githubButton: "GitHubを見る",
-    reposButton: "公開リポジトリ",
-    signalRow: "NoPlanCodersの活動領域",
-    signalTypeLabel: "種類",
-    signalType: "GitHub組織",
-    signalFocusLabel: "内容",
-    signalFocus: "Web / AI / ツール",
-    signalUrlLabel: "URL",
-    aboutKicker: "概要",
-    aboutTitle: "NoPlanCodersについて",
-    aboutCopy: "思いついたものを作って、GitHubに置いています。小さいものでも、使えそうなら公開します。",
-    cardOneTitle: "まず作る",
-    cardOneCopy: "細かく考えすぎず、まず動く形にします。",
-    cardTwoTitle: "GitHubに置く",
-    cardTwoCopy: "コードやメモは、できるだけGitHubで見られるようにします。",
-    cardThreeTitle: "使えるようにする",
-    cardThreeCopy: "見た目よりも、ちゃんと使えることを優先します。",
-    worksKicker: "作っているもの",
-    worksTitle: "作っているもの",
-    worksCopy: "Webサイト、開発用ツール、AIを使った小さなツールなどを作っています。",
-    stepThink: "考える",
-    stepBuild: "作る",
-    stepPublish: "公開する",
-    stepFix: "直す",
-    reposKicker: "リポジトリ",
-    reposTitle: "公開中のリポジトリ",
-    reposCopy: "NoPlanCodersの公開リポジトリを表示しています。",
-    repoLoadingTitle: "リポジトリを読み込み中",
-    repoLoadingCopy: "GitHubから情報を取得しています。",
-    allReposLink: "すべてのリポジトリを見る",
-    joinKicker: "参加",
-    joinTitle: "参加する",
-    joinCopy: "気になるリポジトリがあれば、IssueやPull Requestを送ってください。",
-    githubShortButton: "GitHubへ",
-    siteRepoButton: "このサイトのリポジトリ",
+    reposButton: "リポジトリを見る",
+    reposTitle: "リポジトリ",
+    reposCopy: "GitHubで公開しているものです。",
+    repoLoadingTitle: "読み込み中",
+    repoLoadingCopy: "GitHubから取得しています。",
+    allReposLink: "GitHubですべて見る",
     genericRepoDescription: "NoPlanCodersの公開リポジトリです。",
     repoMetaLabel: "の情報",
     starsLabel: "スター",
     updatedLabel: "更新",
     publicLabel: "Public",
     repoDescriptions: {
-      "npc-website": "NoPlanCoders公式サイトです。",
-      ".github": "NoPlanCodersのGitHub設定用リポジトリです。",
+      "npc-website": "NoPlanCodersのサイトです。",
+      ".github": "GitHub用の設定です。",
     },
   },
   en: {
-    title: "NoPlanCoders | Official Website",
-    description: "NoPlanCoders is a GitHub organization. We build and publish websites and developer tools.",
+    title: "NoPlanCoders",
+    description: "NoPlanCoders is a GitHub org. We put things here as we make them.",
     skipLink: "Skip to main content",
     mainNav: "Main navigation",
-    openMenu: "Open menu",
-    closeMenu: "Close menu",
     languageSwitch: "Choose language",
-    navAbout: "About",
-    navWorks: "Works",
-    navRepos: "Repositories",
-    navJoin: "Join",
-    heroEyebrow: "GitHub organization",
-    heroCopy: "NoPlanCoders is a GitHub organization. We build websites, AI tools, and developer tools.",
-    primaryLinks: "Primary links",
+    heroEyebrow: "GitHub org",
+    heroCopy: "NoPlanCoders is a GitHub org. Nothing is fixed yet. We put things here as we make them.",
+    primaryLinks: "Links",
     githubButton: "View GitHub",
-    reposButton: "Public repositories",
-    signalRow: "NoPlanCoders activity",
-    signalTypeLabel: "Type",
-    signalType: "GitHub org",
-    signalFocusLabel: "Focus",
-    signalFocus: "Web / AI / Tools",
-    signalUrlLabel: "URL",
-    aboutKicker: "About",
-    aboutTitle: "About NoPlanCoders",
-    aboutCopy: "We make things and put them on GitHub. If something seems useful, we publish it.",
-    cardOneTitle: "Make first",
-    cardOneCopy: "We avoid overthinking and make something that works first.",
-    cardTwoTitle: "Put it on GitHub",
-    cardTwoCopy: "We keep code and notes as visible as possible on GitHub.",
-    cardThreeTitle: "Make it usable",
-    cardThreeCopy: "We care more about working well than looking fancy.",
-    worksKicker: "Works",
-    worksTitle: "What we make",
-    worksCopy: "We make websites, developer tools, and small AI tools.",
-    stepThink: "Think",
-    stepBuild: "Build",
-    stepPublish: "Publish",
-    stepFix: "Fix",
-    reposKicker: "Repositories",
-    reposTitle: "Public repositories",
-    reposCopy: "Public repositories from NoPlanCoders are shown here.",
-    repoLoadingTitle: "Loading repositories",
-    repoLoadingCopy: "Loading data from GitHub.",
-    allReposLink: "View all repositories",
-    joinKicker: "Join",
-    joinTitle: "Join",
-    joinCopy: "If you find a repository you care about, send an Issue or Pull Request.",
-    githubShortButton: "Open GitHub",
-    siteRepoButton: "This site's repository",
+    reposButton: "View repositories",
+    reposTitle: "Repositories",
+    reposCopy: "Things published on GitHub.",
+    repoLoadingTitle: "Loading",
+    repoLoadingCopy: "Loading from GitHub.",
+    allReposLink: "View all on GitHub",
     genericRepoDescription: "A public NoPlanCoders repository.",
     repoMetaLabel: "metadata",
     starsLabel: "stars",
     updatedLabel: "Updated",
     publicLabel: "Public",
     repoDescriptions: {
-      "npc-website": "Official website for the NoPlanCoders GitHub organization.",
-      ".github": "GitHub configuration repository for NoPlanCoders.",
+      "npc-website": "NoPlanCoders site.",
+      ".github": "GitHub settings.",
     },
   },
 };
@@ -147,12 +76,6 @@ function updateUrlLanguage(lang) {
   window.history.replaceState({}, "", url);
 }
 
-function setMenuLabel() {
-  if (!toggle) return;
-  const key = nav?.classList.contains("is-open") ? "closeMenu" : "openMenu";
-  toggle.setAttribute("aria-label", translations[currentLanguage][key]);
-}
-
 function applyLanguage(lang, shouldStore = false) {
   currentLanguage = lang;
   document.documentElement.lang = lang;
@@ -173,11 +96,8 @@ function applyLanguage(lang, shouldStore = false) {
   });
 
   languageButtons.forEach((button) => {
-    const isActive = button.dataset.lang === lang;
-    button.setAttribute("aria-pressed", String(isActive));
+    button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
   });
-
-  setMenuLabel();
 
   if (cachedRepos.length) {
     renderRepos(cachedRepos);
@@ -188,20 +108,6 @@ function applyLanguage(lang, shouldStore = false) {
     updateUrlLanguage(lang);
   }
 }
-
-toggle?.addEventListener("click", () => {
-  const isOpen = nav?.classList.toggle("is-open") ?? false;
-  toggle.setAttribute("aria-expanded", String(isOpen));
-  setMenuLabel();
-});
-
-menu?.addEventListener("click", (event) => {
-  if (event.target instanceof HTMLAnchorElement) {
-    nav?.classList.remove("is-open");
-    toggle?.setAttribute("aria-expanded", "false");
-    setMenuLabel();
-  }
-});
 
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {

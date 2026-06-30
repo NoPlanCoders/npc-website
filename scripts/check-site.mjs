@@ -26,7 +26,7 @@ const checks = [
   ["Japanese hreflang exists", html.includes('hreflang="ja"')],
   ["English hreflang exists", html.includes('hreflang="en"')],
   ["Language switch exists", html.includes('class="lang-switch"')],
-  ["English translations exist", js.includes("About NoPlanCoders")],
+  ["English translations exist", js.includes("Nothing is fixed yet")],
   ["Reduced motion support exists", css.includes("prefers-reduced-motion")],
   ["Focus visible styles exist", css.includes(":focus-visible")],
 ];

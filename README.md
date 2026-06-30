@@ -1,6 +1,6 @@
 # NoPlanCoders Website
 
-NoPlanCoders公式サイトです。
+NoPlanCodersのサイトです。
 
 Production: https://npc-orgs.vercel.app
 

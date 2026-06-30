@@ -6,13 +6,13 @@
     <meta name="theme-color" content="#050608" />
     <meta
       name="description"
-      content="NoPlanCodersはGitHubの組織です。Webサイトや開発用ツールを作って公開しています。"
+      content="NoPlanCodersはGitHubのorgです。作ったものを置いています。"
       data-i18n-meta="description"
     />
     <meta property="og:title" content="NoPlanCoders" />
     <meta
       property="og:description"
-      content="NoPlanCodersはGitHubの組織です。Webサイトや開発用ツールを作って公開しています。"
+      content="NoPlanCodersはGitHubのorgです。作ったものを置いています。"
       data-i18n-meta="description"
     />
     <meta property="og:type" content="website" />
@@ -24,174 +24,64 @@
     <link rel="alternate" hreflang="ja" href="https://npc-orgs.vercel.app/?lang=ja" />
     <link rel="alternate" hreflang="en" href="https://npc-orgs.vercel.app/?lang=en" />
     <link rel="alternate" hreflang="x-default" href="https://npc-orgs.vercel.app" />
-    <title>NoPlanCoders | 公式サイト</title>
+    <title>NoPlanCoders</title>
     <link rel="icon" href="assets/logo-mark.png" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skipLink">本文へ移動</a>
 
-    <header class="site-header" data-nav>
+    <header class="site-header">
       <nav class="nav-shell" aria-label="メインナビゲーション" data-i18n-aria-label="mainNav">
         <a class="brand" href="#top" aria-label="NoPlanCoders home">
           <img src="assets/logo-mark.png" width="36" height="36" alt="" />
           <span>NoPlanCoders</span>
         </a>
 
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-label="メニューを開く"
-          data-i18n-aria-label="openMenu"
-          aria-controls="site-menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-        </button>
-
-        <div class="nav-links" id="site-menu">
-          <a href="#about" data-i18n="navAbout">概要</a>
-          <a href="#works" data-i18n="navWorks">作っているもの</a>
-          <a href="#repositories" data-i18n="navRepos">リポジトリ</a>
-          <a href="#join" data-i18n="navJoin">参加</a>
-          <a class="nav-action" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
-            GitHub
-          </a>
+        <div class="nav-actions">
           <div class="lang-switch" role="group" aria-label="言語を選択" data-i18n-aria-label="languageSwitch">
             <button class="lang-option" type="button" data-lang="ja" aria-pressed="true">JA</button>
             <button class="lang-option" type="button" data-lang="en" aria-pressed="false">EN</button>
           </div>
+          <a class="text-button" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
+            GitHub
+          </a>
         </div>
       </nav>
     </header>
 
-    <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <img class="hero-logo" src="assets/logo.png" alt="" aria-hidden="true" />
-        <div class="hero-grid" aria-hidden="true"></div>
-
-        <div class="hero-content">
-          <p class="eyebrow" data-i18n="heroEyebrow">GitHubの組織</p>
-          <h1 id="hero-title">NoPlanCoders</h1>
-          <p class="hero-copy" data-i18n="heroCopy">
-            NoPlanCodersはGitHubの組織です。Webサイト、AI関連ツール、開発用ツールなどを作って公開しています。
-          </p>
-          <div class="hero-actions" aria-label="主要リンク" data-i18n-aria-label="primaryLinks">
-            <a class="button primary" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
-              <span data-i18n="githubButton">GitHubを見る</span>
-            </a>
-            <a class="button secondary" href="#repositories" data-i18n="reposButton">公開リポジトリ</a>
-          </div>
-        </div>
-
-        <div class="signal-row" aria-label="NoPlanCodersの活動領域" data-i18n-aria-label="signalRow">
-          <div>
-            <span class="signal-label" data-i18n="signalTypeLabel">種類</span>
-            <strong data-i18n="signalType">GitHub組織</strong>
-          </div>
-          <div>
-            <span class="signal-label" data-i18n="signalFocusLabel">内容</span>
-            <strong data-i18n="signalFocus">Web / AI / ツール</strong>
-          </div>
-          <div>
-            <span class="signal-label" data-i18n="signalUrlLabel">URL</span>
-            <strong>github.com/NoPlanCoders</strong>
-          </div>
+    <main id="main" class="page-shell">
+      <section class="intro" id="top" aria-labelledby="hero-title">
+        <img class="intro-logo" src="assets/logo-mark.png" width="84" height="84" alt="" />
+        <p class="eyebrow" data-i18n="heroEyebrow">GitHub org</p>
+        <h1 id="hero-title">NoPlanCoders</h1>
+        <p class="intro-copy" data-i18n="heroCopy">
+          NoPlanCodersはGitHubのorgです。まだ何をするかは決めてません。作ったものをここに置いています。
+        </p>
+        <div class="intro-actions" aria-label="リンク" data-i18n-aria-label="primaryLinks">
+          <a class="button primary" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
+            <span data-i18n="githubButton">GitHubを見る</span>
+          </a>
+          <a class="button secondary" href="#repositories" data-i18n="reposButton">リポジトリを見る</a>
         </div>
       </section>
 
-      <section class="section intro-band" id="about" aria-labelledby="about-title">
-        <div class="section-kicker" data-i18n="aboutKicker">概要</div>
-        <div class="section-heading">
-          <h2 id="about-title" data-i18n="aboutTitle">NoPlanCodersについて</h2>
-          <p data-i18n="aboutCopy">
-            思いついたものを作って、GitHubに置いています。小さいものでも、使えそうなら公開します。
-          </p>
-        </div>
-        <div class="manifesto-grid">
-          <article class="manifesto-card">
-            <span class="card-index">01</span>
-            <h3 data-i18n="cardOneTitle">まず作る</h3>
-            <p data-i18n="cardOneCopy">細かく考えすぎず、まず動く形にします。</p>
-          </article>
-          <article class="manifesto-card">
-            <span class="card-index">02</span>
-            <h3 data-i18n="cardTwoTitle">GitHubに置く</h3>
-            <p data-i18n="cardTwoCopy">コードやメモは、できるだけGitHubで見られるようにします。</p>
-          </article>
-          <article class="manifesto-card">
-            <span class="card-index">03</span>
-            <h3 data-i18n="cardThreeTitle">使えるようにする</h3>
-            <p data-i18n="cardThreeCopy">見た目よりも、ちゃんと使えることを優先します。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section work-band" id="works" aria-labelledby="works-title">
-        <div class="section-kicker" data-i18n="worksKicker">作っているもの</div>
-        <div class="split-heading">
-          <h2 id="works-title" data-i18n="worksTitle">作っているもの</h2>
-          <p data-i18n="worksCopy">Webサイト、開発用ツール、AIを使った小さなツールなどを作っています。</p>
-        </div>
-
-        <div class="workflow">
-          <div class="workflow-step">
-            <span>1</span>
-            <strong data-i18n="stepThink">考える</strong>
-          </div>
-          <div class="workflow-step">
-            <span>2</span>
-            <strong data-i18n="stepBuild">作る</strong>
-          </div>
-          <div class="workflow-step">
-            <span>3</span>
-            <strong data-i18n="stepPublish">公開する</strong>
-          </div>
-          <div class="workflow-step">
-            <span>4</span>
-            <strong data-i18n="stepFix">直す</strong>
-          </div>
-        </div>
-      </section>
-
-      <section class="section repo-band" id="repositories" aria-labelledby="repo-title">
-        <div class="section-kicker" data-i18n="reposKicker">リポジトリ</div>
-        <div class="section-heading compact">
-          <h2 id="repo-title" data-i18n="reposTitle">公開中のリポジトリ</h2>
-          <p data-i18n="reposCopy">NoPlanCodersの公開リポジトリを表示しています。</p>
+      <section class="repo-section" id="repositories" aria-labelledby="repo-title">
+        <div class="section-header">
+          <h2 id="repo-title" data-i18n="reposTitle">リポジトリ</h2>
+          <p data-i18n="reposCopy">GitHubで公開しているものです。</p>
         </div>
 
         <div class="repo-grid" id="repo-list" aria-live="polite">
           <article class="repo-card loading">
-            <span class="repo-name" data-i18n="repoLoadingTitle">Loading repositories</span>
-            <p data-i18n="repoLoadingCopy">GitHubから情報を取得しています。</p>
+            <span class="repo-name" data-i18n="repoLoadingTitle">読み込み中</span>
+            <p data-i18n="repoLoadingCopy">GitHubから取得しています。</p>
           </article>
         </div>
 
-        <div class="repo-footer">
-          <a class="text-link" href="https://github.com/NoPlanCoders?tab=repositories" rel="noreferrer" target="_blank">
-            <span data-i18n="allReposLink">すべてのリポジトリを見る</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="section join-band" id="join" aria-labelledby="join-title">
-        <div class="join-content">
-          <p class="eyebrow" data-i18n="joinKicker">参加</p>
-          <h2 id="join-title" data-i18n="joinTitle">参加する</h2>
-          <p data-i18n="joinCopy">
-            気になるリポジトリがあれば、IssueやPull Requestを送ってください。
-          </p>
-        </div>
-        <div class="join-actions">
-          <a class="button primary" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
-            <span data-i18n="githubShortButton">GitHubへ</span>
-          </a>
-          <a class="button secondary" href="https://github.com/NoPlanCoders/npc-website" rel="noreferrer" target="_blank">
-            <span data-i18n="siteRepoButton">このサイトのリポジトリ</span>
-          </a>
-        </div>
+        <a class="plain-link" href="https://github.com/NoPlanCoders?tab=repositories" rel="noreferrer" target="_blank">
+          <span data-i18n="allReposLink">GitHubですべて見る</span>
+        </a>
       </section>
     </main>
 
