@@ -65,9 +65,7 @@ const translations = {
 
 const supportedLanguages = Object.keys(translations);
 
-// ここに書いたリポジトリ名だけが「注目のリポジトリ」に表示されます。
-// 順番もこの配列の並び順どおりになります。
-const featuredRepoNames = ["npc-website"];
+const featuredRepoNames = ["npc-website","IdolCraft","Dodosk-Discord-Bot"];
 
 const fallbackRepos = [
   {
