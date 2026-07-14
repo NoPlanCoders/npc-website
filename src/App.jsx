@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import Plasma from "./Plasma.jsx";
 import { CardStack } from "./components/CardStack.jsx";
 import logoMark from "../assets/logo-mark.png";
+import Thumb1 from "../assets/Thumb1.png";
+import Thumb2 from "../assets/Thumb2.png";
+import Thumb3 from "../assets/Thumb3.png";
 
 const translations = {
   ja: {
@@ -16,13 +18,10 @@ const translations = {
     primaryLinks: "リンク",
     githubButton: "GitHubを見る",
     reposButton: "リポジトリを見る",
-    showcaseTitle: "注目のリポジトリ",
-    showcaseCopy: "その中から特にピックアップしたものです。",
-    reposTitle: "リポジトリ",
-    reposCopy: "GitHubで公開しているものです。",
+    showcaseTitle: "リポジトリ",
     repoLoadingTitle: "読み込み中",
     repoLoadingCopy: "GitHubから取得しています。",
-    allReposLink: "GitHubですべて見る",
+    allReposLink: "all view...",
     genericRepoDescription: "NoPlanCodersの公開リポジトリです。",
     repoMetaLabel: "の情報",
     starsLabel: "スター",
@@ -44,13 +43,10 @@ const translations = {
     primaryLinks: "Links",
     githubButton: "View GitHub",
     reposButton: "View repositories",
-    showcaseTitle: "Featured repositories",
-    showcaseCopy: "A few picks from the list below.",
-    reposTitle: "Repositories",
-    reposCopy: "Things published on GitHub.",
+    showcaseTitle: "Repositories",
     repoLoadingTitle: "Loading",
     repoLoadingCopy: "Loading from GitHub.",
-    allReposLink: "View all on GitHub",
+    allReposLink: "all view...",
     genericRepoDescription: "A public NoPlanCoders repository.",
     repoMetaLabel: "metadata",
     starsLabel: "stars",
@@ -64,8 +60,13 @@ const translations = {
 };
 
 const supportedLanguages = Object.keys(translations);
-
 const featuredRepoNames = ["npc-website","IdolCraft","Dodosk-Discord-Bot"];
+
+const repoThumbnails = {
+  "npc-website": Thumb1,
+  "IdolCraft": Thumb2,
+  "Dodosk-Discord-Bot": Thumb3
+};
 
 const fallbackRepos = [
   {
@@ -109,11 +110,34 @@ const useReducedMotion = () => {
   return reducedMotion;
 };
 
+const useCardSize = () => {
+  const [size, setSize] = useState({ width: 420, height: 260 });
+
+  useEffect(() => {
+    const update = () => {
+      const vw = window.innerWidth;
+      if (vw < 480) {
+        setSize({ width: Math.min(300, vw - 64), height: 200 });
+      } else if (vw < 700) {
+        setSize({ width: 360, height: 230 });
+      } else {
+        setSize({ width: 420, height: 260 });
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return size;
+};
+
 function App() {
   const [language, setLanguage] = useState(getInitialLanguage);
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const reducedMotion = useReducedMotion();
+  const cardSize = useCardSize();
   const t = translations[language];
 
   const dateFormatter = useMemo(
@@ -202,12 +226,14 @@ function App() {
         title: repo.name,
         description: getRepoDescription(repo),
         href: repo.html_url,
-        // GitHubが自動生成するOGP画像をカードのビジュアルとして利用
-        imageSrc: repo.full_name
+         // repoThumbnailsに指定があればそれを優先、なければGitHubのOGP画像を使う
+        imageSrc:
+        repoThumbnails[repo.name] ||
+        (repo.full_name
           ? `https://opengraph.githubassets.com/1/${repo.full_name}`
-          : undefined,
-      })),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+          : undefined),
+      })
+    ),
     [featuredRepos, language],
   );
 
@@ -217,70 +243,49 @@ function App() {
         {t.skipLink}
       </a>
 
-      <div className="plasma-layer" aria-hidden="true">
-        {!reducedMotion && (
-          <Plasma
-            color="#8fe7d0"
-            speed={0.28}
-            direction="pingpong"
-            scale={1.55}
-            opacity={0.18}
-            mouseInteractive
-          />
-        )}
-      </div>
-
       <header className="site-header">
-        <nav className="nav-shell" aria-label={t.mainNav}>
-          <a className="brand" href="#top" aria-label="NoPlanCoders home">
-            <img src={logoMark} width="36" height="36" alt="" />
-            <span>NoPlanCoders</span>
+          <a className="brand-logo" href="#top" aria-label="NoPlanCoders home">
+            <img src={logoMark} width="72" height="72" alt=""/>
           </a>
-
-          <div className="nav-actions">
-            <div className="lang-switch" role="group" aria-label={t.languageSwitch}>
-              {supportedLanguages.map((lang) => (
-                <button
-                  className="lang-option"
-                  type="button"
-                  key={lang}
-                  aria-pressed={language === lang}
-                  onClick={() => changeLanguage(lang)}
-                >
-                  {lang.toUpperCase()}
-                </button>
-              ))}
-            </div>
-            <a className="text-button" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
-              GitHub
-            </a>
-          </div>
-        </nav>
+          <p className="brand-title">NoPlanCorders</p>
+           <a className="brand-subtitle"
+            href="https://github.com/NoPlanCoders"
+            rel="noreferrer"
+            target="_blank"
+            >
+            {t.heroEyebrow}
+          </a>
       </header>
 
       <main id="main" className="page-shell">
-        <section className="intro" id="top" aria-labelledby="hero-title">
-          <img className="intro-logo" src={logoMark} width="84" height="84" alt="" />
-          <p className="eyebrow">{t.heroEyebrow}</p>
-          <h1 id="hero-title">NoPlanCoders</h1>
-          <p className="intro-copy">{t.heroCopy}</p>
-          <div className="intro-actions" aria-label={t.primaryLinks}>
-            <a className="button primary" href="https://github.com/NoPlanCoders" rel="noreferrer" target="_blank">
-              {t.githubButton}
-            </a>
-            <a className="button secondary" href="#repositories">
-              {t.reposButton}
-            </a>
+
+        <div className="lang-switch-row">
+          <div className="lang-switch" role="group" aria-label={t.languageSwitch}>
+            {supportedLanguages.map((lang) => (
+              <button
+                className="lang-option"
+                type="button"
+                key={lang}
+                aria-pressed={language === lang}
+                onClick={() => changeLanguage(lang)}
+              >
+                {lang.toUpperCase()}
+              </button>
+            ))}
           </div>
-        </section>
+        </div>
 
         {!isLoading && showcaseItems.length > 0 && (
           <section className="showcase-section" aria-label={t.showcaseTitle}>
             <div className="section-header">
               <h2>{t.showcaseTitle}</h2>
-              <p>{t.showcaseCopy}</p>
             </div>
-            <CardStack items={showcaseItems} cardWidth={420} cardHeight={260} autoAdvance />
+            <CardStack 
+              items={showcaseItems}
+              cardWidth={cardSize.width}
+              cardHeight={cardSize.height}
+              autoAdvance
+            />
           </section>
         )}
 
