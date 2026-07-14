@@ -143,7 +143,7 @@ export function CardStack({
     >
       {/* Stage */}
       <div
-        className="relative w-full"
+        className="relative overflow-hidden"
         style={{ height: cardHeight + 50}}
         tabIndex={0}
         onKeyDown={onKeyDown}
