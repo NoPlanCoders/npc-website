@@ -320,12 +320,9 @@ function DefaultFanCard({ item }) {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
       {/* content */}
-      <div className="relative z-10 flex h-full flex-col justify-end p-5">
-        <div className="truncate text-lg font-semibold text-white">
-          {item.title}
-        </div>
+      <div className="relative z-10 flex h-full flex-col justify-end items-center p-8">
         {item.description ? (
-          <div className="mt-1 line-clamp-2 text-sm text-white/80">
+          <div className="mt-1 line-clamp-2 text-sm text-white">
             {item.description}
           </div>
         ) : null}

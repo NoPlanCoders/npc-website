@@ -9,7 +9,6 @@ const translations = {
   ja: {
     title: "NoPlanCoders",
     description: "NoPlanCodersはGitHubのorgです。作ったものを置いています。",
-    skipLink: "本文へ移動",
     mainNav: "メインナビゲーション",
     languageSwitch: "言語を選択",
     heroEyebrow: "GitHub org",
@@ -24,7 +23,7 @@ const translations = {
     allReposLink: "all view...",
     genericRepoDescription: "NoPlanCodersの公開リポジトリです。",
     repoMetaLabel: "の情報",
-    starsLabel: "スター",
+    starsLabel: "☆",
     updatedLabel: "更新",
     publicLabel: "Public",
     repoDescriptions: {
@@ -35,7 +34,6 @@ const translations = {
   en: {
     title: "NoPlanCoders",
     description: "NoPlanCoders is a GitHub org. We put things here as we make them.",
-    skipLink: "Skip to main content",
     mainNav: "Main navigation",
     languageSwitch: "Choose language",
     heroEyebrow: "GitHub org",
@@ -49,7 +47,7 @@ const translations = {
     allReposLink: "all view...",
     genericRepoDescription: "A public NoPlanCoders repository.",
     repoMetaLabel: "metadata",
-    starsLabel: "stars",
+    starsLabel: "⭐︎",
     updatedLabel: "Updated",
     publicLabel: "Public",
     repoDescriptions: {
@@ -239,10 +237,6 @@ function App() {
 
   return (
     <>
-      <a className="skip-link" href="#main">
-        {t.skipLink}
-      </a>
-
       <header className="site-header">
           <a className="brand-logo" href="#top" aria-label="NoPlanCoders home">
             <img src={logoMark} width="72" height="72" alt=""/>
@@ -290,11 +284,6 @@ function App() {
         )}
 
         <section className="repo-section" id="repositories" aria-labelledby="repo-title">
-          <div className="section-header">
-            <h2 id="repo-title">{t.reposTitle}</h2>
-            <p>{t.reposCopy}</p>
-          </div>
-
           <div className="repo-grid" aria-live="polite">
             {isLoading ? (
               <article className="repo-card loading">
@@ -312,12 +301,11 @@ function App() {
                   <a className="repo-card" href={repo.html_url} target="_blank" rel="noreferrer" key={repo.name}>
                     <span>
                       <span className="repo-name">{repo.name}</span>
-                      <p>{getRepoDescription(repo)}</p>
+                      <p class="repo-explain">{getRepoDescription(repo)}</p>
                     </span>
                     <span className="repo-meta" aria-label={metaLabel}>
-                      <span>{languageName}</span>
                       <span>
-                        {stars} {t.starsLabel}
+                        {t.starsLabel} {stars}
                       </span>
                       <span>
                         {t.updatedLabel} {dateFormatter.format(new Date(repo.updated_at))}
